@@ -9,7 +9,8 @@ class solr::install {
 
   file { $solr::staging_dir:
     ensure  => directory,
-    recurse => true
+    recurse => true,
+    max_files => -1,
   }
 
   archive { "${solr::staging_dir}/solr-${solr::version}.tgz":
